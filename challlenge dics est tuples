@@ -1,0 +1,63 @@
+# Challenge : Manipulation des dictionnaires
+First_dict = {
+    "Appareil": "Laptop",
+    "Marque": "IBM",
+    "Carte mère": "MSI Z490",
+    "Carte Graphique": "GeForce RTX 3070",
+    "RAM": "16G",
+    "Processeur": "Intel core i7-G11",
+    "SSD": "1 To"
+}
+
+First_dict["RAM"] = "32G"
+print("Clés :", list(First_dict.keys()))
+print("Valeurs :", list(First_dict.values()))
+print("Paires clé-valeur :", list(First_dict.items()))
+First_dict["Carte Graphique"], First_dict["Processeur"] = First_dict["Processeur"], First_dict["Carte Graphique"]
+First_dict["Système d’exploitation"] = "Windows 10"
+print("Dictionnaire final :", First_dict)
+
+# Challenge : Partition d’un dictionnaire selon les moyennes
+notes_eleves = {
+    "Amine": 15.5, "Yassine": 19.0, "Reda": 14.2, "Malak": 8.7,
+    "Manal": 20.0, "Ahmed": 7.5, "Saad": 11.3, "Hannae": 9.8
+}
+etudiantAdmis = {}
+etudiantNonAdmis = {}
+for nom, moyenne in notes_eleves.items():
+    if moyenne >= 10:
+        etudiantAdmis[nom] = moyenne
+    else:
+        etudiantNonAdmis[nom] = moyenne
+print("Étudiants admis :", etudiantAdmis)
+print("Étudiants non admis :", etudiantNonAdmis)
+
+# Challenge : Mise à jour de dictionnaires
+d1 = {"a": 1, "b": 2}
+d2 = {"c": 3}
+d3 = {"d": 4, "e": 5}
+d1.update(d2)
+d1.update(d3)
+print("Dictionnaire fusionné :", d1)
+
+# Challenge : Conversion de deux listes en dictionnaire
+cles = ["nom", "âge", "filière"]
+valeurs = ["Sara", 21, "IA"]
+dico = dict(zip(cles, valeurs))
+print("Dictionnaire créé :", dico)
+
+# Challenge : Tri d’un dictionnaire par valeur
+d = {"Ahmed": 15, "Sara": 12, "Omar": 18, "Yasmine": 10}
+d_trie = dict(sorted(d.items(), key=lambda x: x[1]))
+print("Dictionnaire trié par valeur :", d_trie)
+
+# Challenge : Manipulation de tuples
+etudiant_info = ("Yasmine", 22, "Informatique", 17.4)
+print("Prénom :", etudiant_info[0])
+print("Âge :", etudiant_info[1])
+print("Filière :", etudiant_info[2])
+print("Moyenne générale :", etudiant_info[3])
+# etudiant_info[2] = "Mathématiques"  # Ceci lèvera une erreur car les tuples sont immuables
+print("Slicing prénom et âge :", etudiant_info[0:2])
+nouveau_tuple = etudiant_info + ("Très Bien", 2024)
+print("Tuple final :", nouveau_tuple)
