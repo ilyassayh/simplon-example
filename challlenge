@@ -1,0 +1,55 @@
+# Challenge 1
+notes = [12, 4, 14, 11, 18, 13, 7, 10, 5, 9, 15, 8, 14, 16]
+moyenne = sum(notes) / len(notes)
+notes_sup = []
+for note in notes:
+    if note > moyenne:
+        notes_sup.append(note)
+print("Moyenne :", moyenne)
+print("Notes supérieures à la moyenne :", notes_sup)
+
+# Challenge 2
+Ch1 = "Le langage Python est très populaire"
+Ch2 = "Python est un langage puissant"
+mots1 = Ch1.lower().split()
+mots2 = Ch2.lower().split()
+mots_communs = []
+for mot in mots1:
+    if mot in mots2 and mot not in mots_communs:
+        mots_communs.append(mot)
+print("Mots communs :", mots_communs)
+
+# Challenge 3
+stock = ["Stylo", 25, "Classeur", 100, "Crayon", 12, "Surligneur", 40, "Feutre", 5]
+print("Liste initiale :", stock)
+noms = []
+quantites = []
+for i in stock:
+    if type(i) == str:
+        noms.append(i)
+    else:
+        quantites.append(i)
+noms.sort()
+quantites.sort(reverse=True)
+print("Articles (noms) triés :", noms)
+print("Quantités triées :", quantites)
+
+# Challenge 4
+def rechercheElement(element, liste):
+    for i in range(len(liste)):
+        if liste[i] == element:
+            return i
+    return False
+print(rechercheElement(13, [5, 7, 13, 9]))
+print(rechercheElement(20, [5, 7, 13, 9]))
+
+# Challenge 5
+L = [7 , 23 , 5 , 23 , 7 , 19 , 23 , 12 , 29]
+a = 23
+def compter_occurrences(L, a):
+    compteur = 0
+    for element in L:
+        if element == a:
+            compteur += 1
+    return compteur
+print(f"Nombre d'occurrences de {a} :", compter_occurrences(L, a))
