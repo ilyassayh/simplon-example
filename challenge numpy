@@ -1,0 +1,42 @@
+# Challenge : Analyse de Températures
+import numpy as np
+
+temperatures = np.array([21.5, 22.3, 20.1, 19.8, 23.0, 24.2, 22.1])
+moyenne = np.mean(temperatures)
+mediane = np.median(temperatures)
+ecart_type = np.std(temperatures)
+print("Moyenne :", moyenne)
+print("Médiane :", mediane)
+print("Écart-type :", ecart_type)
+
+# Challenge : Normalisation de Données
+donnees = np.array([10, 20, 30, 40, 50])
+moy = np.mean(donnees)
+std = np.std(donnees)
+donnees_normalisees = (donnees - moy) / std
+print("Données normalisées :", donnees_normalisees)
+
+# Challenge : Comparaison de Tableaux
+tab1 = np.array([1, 2, 3, 4, 5])
+tab2 = np.array([1, 2, 0, 4, 8])
+indices_diff = np.where(tab1 != tab2)
+print("Indices différents :", indices_diff)
+print("Valeurs tab1 :", tab1[indices_diff])
+print("Valeurs tab2 :", tab2[indices_diff])
+
+# Challenge : Opérations Matricielles
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+produit = np.dot(A, B)
+transposée = produit.T
+inverse = np.linalg.inv(produit)
+print("Multiplication :", produit)
+print("Transposée :", transposée)
+print("Inverse :", inverse)
+
+# Challenge : Sélection Basée sur Conditions
+valeurs = np.array([3, 7, 12, 5, 18, 1, 10])
+seuil = 10
+indices = np.where(valeurs > seuil)
+valeurs_filtrees = valeurs[indices]
+print("Valeurs supérieures à", seuil, ":", valeurs_filtrees)
