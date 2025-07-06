@@ -1,0 +1,61 @@
+# Challenge : Extraction et Traitement de Fichiers
+import os
+
+repertoire = "fichiers_textes" 
+contenu_total = ""
+
+for fichier in os.listdir(repertoire):
+    if fichier.endswith(".txt"):
+        chemin_fichier = os.path.join(repertoire, fichier)
+        with open(chemin_fichier, "r", encoding="utf-8") as f:
+            contenu_total += f.read() + "\n"
+
+print("Contenu combiné :")
+print(contenu_total)
+
+# Challenge : Recherche de Fichiers
+chemin_config = os.path.join("dossier_config", "config.yaml")
+if os.path.exists(chemin_config):
+    with open(chemin_config, "r", encoding="utf-8") as f:
+        contenu = f.read()
+        print("Contenu de config.yaml :")
+        print(contenu)
+else:
+    print("Le fichier config.yaml n'existe pas.")
+
+# Challenge : Copie Sélective de Fichiers
+import shutil
+
+source = "source_csv"
+destination = "destination_csv"
+
+for fichier in os.listdir(source):
+    if fichier.endswith(".csv"):
+        chemin_source = os.path.join(source, fichier)
+        shutil.copy(chemin_source, destination)
+
+print("Copie terminée.")
+
+# Challenge : Création de Répertoires
+repertoire_principal = "Projet2025"
+noms_sous_repertoires = ["data", "scripts", "output"]
+
+if not os.path.exists(repertoire_principal):
+    os.mkdir(repertoire_principal)
+
+for nom in noms_sous_repertoires:
+    chemin = os.path.join(repertoire_principal, nom)
+    if not os.path.exists(chemin):
+        os.mkdir(chemin)
+
+print("Structure de répertoires créée.")
+
+# Challenge : Écriture de Fichiers
+chemin_fichier = "mon_fichier.txt"
+lignes = ["Ligne 1", "Ligne 2", "Ligne 3"]
+
+with open(chemin_fichier, "w", encoding="utf-8") as f:
+    for ligne in lignes:
+        f.write(ligne + "\n")
+
+print("Écriture terminée dans", chemin_fichier)
