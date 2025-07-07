@@ -1,0 +1,55 @@
+import pandas as pd
+import numpy as np
+
+# Challenge 1 : Nettoyage de Données
+data1 = {
+    "nom": ["Alice", "Bob", "Charlie", "David"],
+    "age": [25, np.nan, 30, 22],
+    "salaire": [5000, 6000, np.nan, 5500]
+}
+df1 = pd.DataFrame(data1)
+df1 = df1.fillna(df1.mean(numeric_only=True))
+print("DataFrame nettoyé:\n", df1)
+
+# Challenge 2 : Filtrage de Données
+data2 = {
+    "transaction_id": [1, 2, 3, 4, 5],
+    "montant": [500, 1500, 300, 2200, 1100]
+}
+df2 = pd.DataFrame(data2)
+df2_filtre = df2[df2["montant"] > 1000]
+print("\nTransactions > 1000:\n", df2_filtre)
+
+# Challenge 3 : Agrégation de Données
+data3 = {
+    "region": ["Nord", "Sud", "Nord", "Est", "Sud"],
+    "ventes": [1000, 2000, 1500, 1200, 1800]
+}
+df3 = pd.DataFrame(data3)
+ventes_par_region = df3.groupby("region")["ventes"].sum()
+print("\nTotal des ventes par région:\n", ventes_par_region)
+
+# Challenge 4 : Fusion de Données
+clients = {
+    "customer_id": [1, 2, 3],
+    "nom": ["Alice", "Bob", "Charlie"]
+}
+commandes = {
+    "order_id": [101, 102, 103],
+    "customer_id": [1, 2, 2],
+    "produit": ["Livre", "Stylo", "Cahier"]
+}
+df_clients = pd.DataFrame(clients)
+df_commandes = pd.DataFrame(commandes)
+fusion = pd.merge(df_clients, df_commandes, on="customer_id")
+print("\nFusion clients-commandes:\n", fusion)
+
+# Challenge 5 : Tableaux Croisés Dynamiques
+data5 = {
+    "produit": ["Livre", "Stylo", "Livre", "Cahier", "Stylo"],
+    "region": ["Nord", "Sud", "Sud", "Est", "Nord"],
+    "ventes": [100, 200, 150, 120, 180]
+}
+df5 = pd.DataFrame(data5)
+pivot = pd.pivot_table(df5, values="ventes", index="produit", columns="region", aggfunc="sum", fill_value=0)
+print("\nTableau croisé dynamique:\n", pivot)
